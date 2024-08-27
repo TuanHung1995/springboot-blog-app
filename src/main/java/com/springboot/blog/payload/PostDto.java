@@ -22,6 +22,6 @@ public class PostDto {
 
     @NotEmpty
     private String content;
-    private Set<Comment> comments;
+//    private Set<Comment> comments;
     
 }
