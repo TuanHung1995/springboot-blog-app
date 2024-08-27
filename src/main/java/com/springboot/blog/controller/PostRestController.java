@@ -5,6 +5,7 @@ import com.springboot.blog.payload.PostDto;
 import com.springboot.blog.payload.PostResponse;
 import com.springboot.blog.service.PostService;
 import com.springboot.blog.utils.AppConstrains;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class PostRestController {
 
     // Create new post rest api
     @PostMapping()
-    public ResponseEntity<PostDto> createNewPost(@RequestBody PostDto postDto) {
+    public ResponseEntity<PostDto> createNewPost(@Valid @RequestBody PostDto postDto) {
         return new ResponseEntity<>(postService.createPost(postDto), HttpStatus.CREATED);
     }
 
@@ -41,7 +42,8 @@ public class PostRestController {
 
     // Update post rest api
     @PutMapping("/{id}")
-    public ResponseEntity<PostDto> updatePost(@PathVariable(name = "id") long id, @RequestBody PostDto postDto) {
+    public ResponseEntity<PostDto> updatePost(@PathVariable(name = "id") long id,
+                                              @Valid @RequestBody PostDto postDto) {
         PostDto responsePost = postService.updatePost(postDto,id);
         return new ResponseEntity<>(responsePost, HttpStatus.OK);
     }
