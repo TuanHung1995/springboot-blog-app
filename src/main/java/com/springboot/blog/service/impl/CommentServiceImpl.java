@@ -120,6 +120,7 @@ public class CommentServiceImpl implements CommentService {
 //        comment.setEmail(commentDto.getEmail());
 //        comment.setBody(commentDto.getBody());
         return mapper.map(commentDto, Comment.class);
+//        return comment;
     }
 
     // Convert Comment to CommentDto
@@ -129,6 +130,7 @@ public class CommentServiceImpl implements CommentService {
 //        commentDto.setName(comment.getName());
 //        commentDto.setEmail(comment.getEmail());
 //        commentDto.setBody(comment.getBody());
+//        return commentDto;
         return mapper.map(comment, CommentDto.class);
     }
 }
