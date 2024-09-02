@@ -63,4 +63,11 @@ public class PostRestController {
         return postService.getAllPostPage(page, size, sortBy, sortOrder);
     }
 
+    // Get posts by category id rest api
+    @GetMapping("/category/{id}")
+    public ResponseEntity<List<PostDto>> getPostsByCategoryId(@PathVariable("id") Long categoryId) {
+        List<PostDto> post = postService.getPostsByCategoryId(categoryId);
+        return ResponseEntity.ok(post);
+    }
+
 }
