@@ -1,6 +1,7 @@
 package com.springboot.blog.payload;
 
 import com.springboot.blog.entity.Comment;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -8,6 +9,9 @@ import lombok.Data;
 import java.util.Set;
 
 @Data
+@Schema(
+        description = "Post information"
+)
 public class PostDto {
 
     private Long id;
